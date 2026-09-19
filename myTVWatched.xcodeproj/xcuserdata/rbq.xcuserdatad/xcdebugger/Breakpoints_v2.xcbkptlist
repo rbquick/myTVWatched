@@ -645,7 +645,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "1B7A04EE-E57A-42A0-9FA5-7A3E1E24F80A"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "tvWatchedEmbedded/myViews/TvListings/ShowListView.swift"
@@ -657,28 +657,28 @@
             landmarkType = "24">
             <Locations>
                <Location
-                  uuid = "1B7A04EE-E57A-42A0-9FA5-7A3E1E24F80A - 4dee5eb294fc8635"
+                  uuid = "1B7A04EE-E57A-42A0-9FA5-7A3E1E24F80A - 97d1634faea9029d"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "tvWatchedEmbedded.ListShowLine.body.getter : some"
-                  moduleName = "tvWatchedEmbedded.debug.dylib"
+                  symbolName = "myTVWatched.ListShowLine.body.getter : some"
+                  moduleName = "myTVWatched.debug.dylib"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/rbq/Documents/Swift/tvWatchedEmbedded/tvWatchedEmbedded/myViews/TvListings/ShowListView.swift"
+                  urlString = "file:///Users/rbq/Documents/Swift/myTVWatched/tvWatchedEmbedded/myViews/TvListings/ShowListView.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "29"
                   endingLineNumber = "29">
                </Location>
                <Location
-                  uuid = "1B7A04EE-E57A-42A0-9FA5-7A3E1E24F80A - ae68cebb7f9e35e1"
+                  uuid = "1B7A04EE-E57A-42A0-9FA5-7A3E1E24F80A - a3dd317f3de43e72"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "closure #1 () -&gt; SwiftUI.TupleView&lt;(SwiftUI.Text, SwiftUI.HStack&lt;SwiftUI.TupleView&lt;(SwiftUI.Spacer, SwiftUI.Text)&gt;&gt;)&gt; in tvWatchedEmbedded.ListShowLine.body.getter : some"
-                  moduleName = "tvWatchedEmbedded.debug.dylib"
+                  symbolName = "closure #1 () -&gt; SwiftUI.TupleView&lt;(SwiftUI.Text, SwiftUI.HStack&lt;SwiftUI.TupleView&lt;(SwiftUI.Spacer, SwiftUI.Text)&gt;&gt;)&gt; in myTVWatched.ListShowLine.body.getter : some"
+                  moduleName = "myTVWatched.debug.dylib"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/rbq/Documents/Swift/tvWatchedEmbedded/tvWatchedEmbedded/myViews/TvListings/ShowListView.swift"
+                  urlString = "file:///Users/rbq/Documents/Swift/myTVWatched/tvWatchedEmbedded/myViews/TvListings/ShowListView.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "30"

@@ -9,66 +9,56 @@
 import SwiftUI
 import Combine
 
-//struct SelectedTabKey: EnvironmentKey {
-//    static let defaultValue: Binding<Int>? = nil
-//}
-//
-//extension EnvironmentValues {
-//    var selectedTab: Binding<Int>? {
-//        get { self[SelectedTabKey.self] }
-//        set { self[SelectedTabKey.self] = newValue }
-//    }
-//}
-//
-//struct SelectedShowIDKey: EnvironmentKey {
-//    static let defaultValue: Binding<Int?>? = nil
-//}
-//
-//extension EnvironmentValues {
-//    var selectedShowID: Binding<Int?>? {
-//        get { self[SelectedShowIDKey.self] }
-//        set { self[SelectedShowIDKey.self] = newValue }
-//    }
-//}
-final class tvWatchedEmbeddedAppState: ObservableObject {
-    @Published  var selectedTab: Int = 0
-    @Published  var selectedShowID: Int? = nil
+
+enum AppTab: Int, Hashable {
+    case shows
+    case calendar
+    case schedule
+    case settings
 }
+
+final class tvWatchedEmbeddedAppState: ObservableObject {
+    @Published var selectedTab: AppTab = .shows
+    @Published var selectedShowID: Int? = nil
+}
+
 @main
 struct tvWatchedEmbeddedApp: App {
     @StateObject var myshowsmodel: MyShowsModel = MyShowsModel()
     @StateObject private var state = tvWatchedEmbeddedAppState()
 
+    private var selectedTabBinding: Binding<Int> {
+        Binding {
+            state.selectedTab.rawValue
+        } set: { rawValue in
+            state.selectedTab = AppTab(rawValue: rawValue) ?? .shows
+        }
+    }
+
     var body: some Scene {
         WindowGroup {
-        if !myshowsmodel.allBaseShowsComplete {
-            ProgressView("Loading shows…\(myshowsmodel.allBaseShows.count) of \(myshowsmodel.MyShows.count)")
-        } else {
-            TabView(selection: $state.selectedTab) {
-                    ShowListView()
-                        .tabItem {
-                            Label("Shows", systemImage: "list.bullet")
-                        }
-                        .tag(0)
-                    MyCalendarView()
-                        .tabItem {
-                            Label("Calendar", systemImage: "calendar")
-                        }
-                        .tag(1)
-                    Scheduler()
-                        .tabItem {
-                            Label("Schedule", systemImage: "calendar.badge.plus")
-                        }
-                        .tag(2)
-                    
-                    Settings()
-                        .tabItem {
-                            Label("Settings", systemImage: "gearshape")
-                        }
-                        .tag(3)
+            if !myshowsmodel.allBaseShowsComplete {
+                ProgressView("Loading shows…\(myshowsmodel.allBaseShows.count) of \(myshowsmodel.MyShows.count)")
+            } else {
+                TabView(selection: $state.selectedTab) {
+                    Tab("Shows", systemImage: "list.bullet", value: AppTab.shows) {
+                        ShowListView()
+                    }
+
+                    Tab("Calendar", systemImage: "calendar", value: AppTab.calendar) {
+                        MyCalendarView()
+                    }
+
+                    Tab("Schedule", systemImage: "calendar.badge.plus", value: AppTab.schedule) {
+                        Scheduler()
+                    }
+
+                    Tab("Settings", systemImage: "gearshape", value: AppTab.settings) {
+                        Settings()
+                    }
                 }
-//            .environment(\.selectedTab, $state.selectedTab)
-//            .environment(\.selectedShowID, $state.selectedShowID)
+                .environment(\.selectedTab, selectedTabBinding)
+                .environment(\.selectedShowID, $state.selectedShowID)
                 .environmentObject(myshowsmodel)
             }
         }
