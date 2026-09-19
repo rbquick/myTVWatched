@@ -4,6 +4,7 @@
 //
 //  Created by Brian Quick on 2025-10-29.
 //
+// 2026-09-19 03:47 trying to get this thing running
 
 import SwiftUI
 import Combine
