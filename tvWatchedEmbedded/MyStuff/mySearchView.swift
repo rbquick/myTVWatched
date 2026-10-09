@@ -17,8 +17,6 @@ struct mySearchView: View {
     @FocusState private var focusedField: Field?
     var body: some View {
         ZStack {
-            Rectangle()
-                .foregroundColor(Color("SearchBar"))
             HStack {
                 Image(systemName: "magnifyingglass")
                 TextField("Search ...", text: $vm.searchText) { startedSearching in
@@ -46,8 +44,10 @@ struct mySearchView: View {
                         .foregroundColor(.black)
                 }
             }
-            .foregroundColor(.gray)
-            .padding()
+            .padding(8)
+            .background(Color.blue.opacity(0.15))
+            .clipShape(RoundedRectangle(cornerRadius: 12))
+            .padding(.horizontal)
         }
         .frame(height: 40)
         .cornerRadius(13)

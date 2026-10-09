@@ -85,9 +85,9 @@ struct SimpleCalendarGrid: View {
                }
         }
         // fixing state
-//        .sheet(isPresented: $state.showUpcomingEpisodesView) {
-//            UpcomingEpisodesView(selectedDate: state.selectedDate)
-//        }
+        .sheet(isPresented: $state.showUpcomingEpisodesView) {
+            UpcomingEpisodesView(selectedDate: state.selectedDate)
+        }
     }
 
     // Generate all days to show in the grid (including leading/trailing days for alignment)
@@ -139,6 +139,7 @@ struct SimpleCalendarGrid: View {
     }
 }
 
-//#Preview {
-//    SimpleCalendarGrid(currentdate: Date())
-//}
+#Preview {
+    SimpleCalendarGrid(currentdate: Date())
+        .environmentObject(MyShowsModel())
+}
