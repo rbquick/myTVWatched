@@ -63,7 +63,7 @@ struct Scheduler: View {
             Divider()
 
             SimpleCalendarGrid(currentdate: state.currentDate)
-                    .frame(maxHeight: 360)
+                    .frame(maxHeight: .infinity)
                     .padding()
 
             Divider()
@@ -79,8 +79,6 @@ struct Scheduler: View {
                         }
                     }
                 }
-            } else {
-                Text("Select a date to see episodes.")
             }
         }
         .onAppear { loadEpisodeDates() }

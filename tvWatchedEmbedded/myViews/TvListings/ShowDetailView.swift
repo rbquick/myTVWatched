@@ -8,22 +8,7 @@
 import SwiftUI
 import Combine
 
-final class ShowDetailViewState: ObservableObject {
-    @Published var show: ShowBase = ShowBase()
-    @Published var apollo: Bool = false
-    @Published var kodi: Bool = false
-    @Published var watching: Bool = false
-    @Published var rating: Int = 0
-    @Published var comments: String = ""
-    @Published var scrollepisodeID: Int = 0
-    @Published var error: String?
-    @Published var originalApollo: Bool = false
-    @Published var originalKodi: Bool = false
-    @Published var originalWatching: Bool = false
-    @Published var originalRating: Int = 0
-    @Published var originalComments: String = ""
 
-}
 struct ShowDetailView: View {
     @EnvironmentObject var myshowsmodel: MyShowsModel
     @StateObject private var state = ShowDetailViewState()
@@ -128,7 +113,7 @@ struct ShowDetailView: View {
             }
             .frame(height: 200)
             .padding(.horizontal)
-            .background(.yellow.opacity(1.0))
+            .background(.blue.opacity(0.2))
 
             if let episodes = state.show.embedded?.episodes, !episodes.isEmpty {
                 ScrollViewReader { proxy in
@@ -212,7 +197,14 @@ struct ShowDetailView: View {
 }
 
 #Preview {
-    ShowDetailView(myshow: MyShow())
-        .environmentObject(MyShowsModel())
+    let sampleEpisodes = [
+        MyEpisode(id: 1, season: 1, number: 1, dateWatched: "2024-01-01"),
+        MyEpisode(id: 2, season: 1, number: 2, dateWatched: "")
+    ]
+    let sampleShow = MyShow(id: 74443, name: "Sample Show", Kodi: true, Apollo: false, Watching: true, Rating: 4, comments: "Excited for the next season!", episodes: sampleEpisodes)
+    let model = MyShowsModel()
+    model.MyShows = [sampleShow]
+    return ShowDetailView(myshow: sampleShow)
+        .environmentObject(model)
 }
 

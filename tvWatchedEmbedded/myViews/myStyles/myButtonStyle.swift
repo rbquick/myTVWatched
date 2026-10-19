@@ -8,8 +8,10 @@
 import SwiftUI
 struct myButtonStyle: ButtonStyle {
     var backgroundColor: Color
-    init(backgroundColor: Color = .clear) {
+    var myStrokeColor = Color.black
+    init(backgroundColor: Color = .clear, myStrokeColor: Color = .black) {
         self.backgroundColor = backgroundColor
+        self.myStrokeColor = myStrokeColor
     }
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
@@ -18,7 +20,7 @@ struct myButtonStyle: ButtonStyle {
             .foregroundColor(configuration.isPressed ? Color.white : Color.black)
             .overlay(
                 RoundedRectangle(cornerRadius: 10)
-                    .stroke(Color.black, lineWidth: 1)
+                    .stroke(myStrokeColor, lineWidth: 1)
             )
             .opacity(configuration.isPressed ? 0.7 : 1.0)
     }

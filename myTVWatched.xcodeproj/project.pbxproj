@@ -6,8 +6,13 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		71FAAFD43080E6370076EB48 /* ShowDetailViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71FAAFD33080E6370076EB48 /* ShowDetailViewState.swift */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		71F38A692EB28252003EBA37 /* myTVWatched.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = myTVWatched.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		71FAAFD33080E6370076EB48 /* ShowDetailViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowDetailViewState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -33,6 +38,7 @@
 			isa = PBXGroup;
 			children = (
 				71F38A6B2EB28252003EBA37 /* tvWatchedEmbedded */,
+				71FAAFD33080E6370076EB48 /* ShowDetailViewState.swift */,
 				71F38A6A2EB28252003EBA37 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -119,6 +125,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				71FAAFD43080E6370076EB48 /* ShowDetailViewState.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
